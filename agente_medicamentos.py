@@ -71,7 +71,7 @@ def formatar_mensagem(alertas):
     """Monta o texto da mensagem WhatsApp."""
     hoje_str = date.today().strftime("%d/%m/%Y")
     linhas = [
-        "ALERTA DE ESTOQUE - " + hoje_str,
+        "*ALERTA DE ESTOQUE - " + hoje_str + "*",
         "Medicamentos que vencem em ate " + str(DIAS_ALERTA) + " dias:\n",
     ]
 
@@ -87,8 +87,8 @@ def formatar_mensagem(alertas):
             status = str(d) + " dias restantes"
 
         linhas.append(
-            "* " + a["paciente"] + " - " + a["medicamento"] + "\n"
-            "  Dura ate: " + a["duracao"] + " (" + status + ")"
+            "* *" + a["paciente"] + " - " + a["medicamento"] + "*\n"
+            "  Dura ate: *" + a["duracao"] + "* (" + status + ")"
         )
 
     linhas.append("\n_Agente automatico - Estoque Medicamentos_")
