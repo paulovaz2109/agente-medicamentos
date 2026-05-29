@@ -11,20 +11,20 @@ jobs:
 
     steps:
       - name: Baixar os arquivos do repositorio
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4
 
       - name: Configurar Python 3.11
-        uses: actions/setup-python@v5.6.0
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Instalar bibliotecas
-        run: pip install openpyxl twilio python-dotenv
+        run: pip install openpyxl
 
       - name: Executar o agente
         env:
-          TWILIO_ACCOUNT_SID:   ${{ secrets.TWILIO_ACCOUNT_SID }}
-          TWILIO_AUTH_TOKEN:    ${{ secrets.TWILIO_AUTH_TOKEN }}
-          TWILIO_WHATSAPP_FROM: ${{ secrets.TWILIO_WHATSAPP_FROM }}
-          MEUS_NUMEROS:         ${{ secrets.MEUS_NUMEROS }}
+          MEU_NUMERO:        ${{ secrets.MEU_NUMERO }}
+          CALLMEBOT_APIKEY:  ${{ secrets.CALLMEBOT_APIKEY }}
+          MEU_NUMERO2:       ${{ secrets.MEU_NUMERO2 }}
+          CALLMEBOT_APIKEY2: ${{ secrets.CALLMEBOT_APIKEY2 }}
         run: python agente_medicamentos.py
